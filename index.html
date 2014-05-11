@@ -15,6 +15,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
     <link rel="stylesheet" href="css/reveal.min.css">
+    <link rel="stylesheet" href="css/main.css">
     <link rel="stylesheet" href="css/theme/default.css" id="theme">
 
     <!-- For syntax highlighting -->
@@ -52,6 +53,7 @@
     </section>
     <section>
         <h2>teammates @ polidea</h2>
+
         <div>
             <img src="img/maciej_op.jpg" style="float: left; width: 200px;">
             <img src="img/wojtek_er.jpg" style="float: right; width: 200px;">
@@ -62,12 +64,18 @@
         </aside>
     </section>
     <section>
-        <h2>Polidea ...</h2>
+        <h1>Polidea...</h1>
+        <br/>
         <ul>
             <li>makes xPlatform mobile apps</li>
             <li>develops hardware related stuff</li>
-            <li>contributes to OSS - RoboSpock, Flow</li>
-            <li>supports community - Mobile Warsaw, Mobile Central Europe</li>
+            <li>contributes to OSS - RoboSpock, Flow, ...</li>
+            <li>supports community
+                <ul>
+                    <li>Mobile Central Europe</li>
+                    <li>Mobile Warsaw</li>
+                </ul>
+            </li>
         </ul>
         <aside class="notes">
             <span style="color: blue;">Wojtek</span>
@@ -76,222 +84,168 @@
 </section>
 <section>
     <section>
-        <h1>Welcome to the world of ...</h1>
+        <h1>Welcome</h1>
+
+        <h3>to the world of ...</h3>
     </section>
     <section>
-        <h1>[Feel like a sir] limitations, sir</h1>
+        <img src="img/sir.jpg">
     </section>
     <section>
-        <h1>[TODO 3 more memes]</h1>
+        <img src="img/Grumpy-Cat-MEME-01.jpg">
+    </section>
+    <section>
+        <img src="img/said-no-one-ever-meme-1.jpg">
+    </section>
+    <section>
+        <img src="img/ChemistryCatOnDating.jpg">
     </section>
 </section>
 <section>
     <section>
         <h1>Mobile network</h1>
+
+        <h3>Latency vs throughput</h3>
+
         <p>[image - page loading, latency vs throughput]</p>
     </section>
     <section>
         <h1>Latency</h1>
-        <p>[table - ping table]</p>
+        <br/>
+        <p>
+        <table class="reveal" style="font-size: smaller;" id="omg_table">
+            <thead>
+            <tr>
+                <th></th>
+                <th>PC + WiFi</th>
+                <th>Mobile + WiFi</th>
+                <th>Mobile + HSDPA+</th>
+                <th>Mobile + 2G</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td>min</td>
+                <td>0.993</td>
+                <td>2</td>
+                <td>42</td>
+                <td>203</td>
+            </tr>
+            <tr>
+                <td>avg</td>
+                <td>3.435</td>
+                <td>19</td>
+                <td>60</td>
+                <td>227</td>
+            </tr>
+            <tr>
+                <td>max</td>
+                <td>30.678</td>
+                <td>460</td>
+                <td>956</td>
+                <td>2000</td>
+            </tr>
+            <tr>
+                <td>stddev</td>
+                <td>2.22</td>
+                <td>17</td>
+                <td>55</td>
+                <td>84</td>
+            </tr>
+            <tr>
+                <td>down</td>
+                <td>139.90</td>
+                <td>18.57</td>
+                <td>5.73</td>
+                <td>0.08</td>
+            </tr>
+            <tr>
+                <td>up</td>
+                <td>86.19</td>
+                <td>18.23</td>
+                <td>3.68</td>
+                <td>0.1</td>
+            </tr>
+            </tbody>
+        </table>
+        </p>
     </section>
     <section>
         <h1>HATEOAS</h1>
-        <p>[przykład z linkowaniem do innej encji]</p>
+        <div class="left_compare">
+            <pre>GET /users/123</pre>
+            <pre><code class="json">{
+  "name": "John Doe",
+  "age": 25,
+  "links": [
+    {
+      "rel": "self",
+      "href": "/users/123"
+    },
+    {
+      "rel": "account",
+      "href": "/accounts/987"
+    },
+    {
+      "rel": "address",
+      "href": "/addresses/555"
+    }
+  ]
+}</code></pre>
+        </div>
+        <div class="right_compare">
+            <pre>GET /addresses/555</pre>
+            <pre><code class="json">{
+  "street": "Sesame",
+  "no": 25,
+  "zipCode": "12-321",
+  "state": "NY",
+  "country": "US"
+}</code></pre>
+        </div>
+
         <p>[negative slide theme]</p>
     </section>
     <section>
         <h1>Merging responses</h1>
-        <p>[ten sam przykład połączony]</p>
+        <br/>
+        <div>
+            <pre>GET /users/123</pre>
+            <pre><code class="json">{
+  "name": "John Doe",
+  "age": 25,
+  "country": "US"
+}</code></pre>
+        </div>
     </section>
     <section>
-        <h1>Expansions</h1>
-        <p>[ten sam przykład z expand]</p>
-        <aside>better for public APIs in cotrast to homegrown</aside>
+        <h1>Expansion</h1>
+        <br/>
+        <div>
+            <pre>GET /users/123?<span style="color: #6a1520;">fields=[name,age,address[country]]</span></pre>
+            <pre><code class="json">{
+  "name": "John Doe",
+  "age": 25,
+  "country": "US"
+}</code></pre>
+        </div>
+        <aside class="notes">better for public APIs in contrast to homegrown, efficient expansion mechanism</aside>
     </section>
     <section>
-        <pre><code>Connection: Keep-Alive</code></pre>
+        <h2><pre><code style="text-align: center;">Connection: Keep-Alive</code></pre></h2>
     </section>
-    <section>
-        <h1>[Swagger full page screenshot]</h1>
-    </section>
+    <section data-background="img/swagger.png"></section>
 </section>
 <section>
     <section>
         <h1>Throughput</h1>
     </section>
     <section>
-        <p>[http://www.akamai.com/dl/akamai/akamai-soti-q413.pdf?WT.mc_id=soti_Q413]</p>
-    </section>
-    <section>
-        <p>[http://www.cisco.com/c/en/us/solutions/collateral/service-provider/visual-networking-index-vni/white_paper_c11-520862.html]</p>
-    </section>
-    <section>
-        <h1>Data subset</h1>
-        <p>[wrzucić dwa przykłady JSONa - full i trimmed]</p>
-    </section>
-    <section>
-        <h1>Compress data (gzip)</h1>
-        <p>[Two examples small and big]</p>
-    </section>
-    <section>
-        <h1>Expansion</h1>
-        <p>[TODO przyklad obcinania danycn]</p>
-    </section>
-    <section>
-        <h1>XML vs JSON</h1>
-        <p>[Dwa sample + size]</p>
-    </section>
-</section>
-<section>
-    <section>
-        <h1>Toolbox</h1>
-        <p>[rysunek - zadanie - rownolegle zapytania]</p>
-    </section>
-    <section>
-        <p>[kod ios android]</p>
-    </section>
-    <section>
-        <h1>Automated testing sucks!</h1>
-        <p>http://cl.ly/image/1d3t3W3Z2Z0r</p>
-    </section>
-    <section>
-        <h1>Updating app takes long</h1>
-        <p>[rysunek update aplikacji]</p>
-    </section>
-    <section>
-        <h1>server side version</h1>
-        <p>[TODO przykład z gpars]</p>
-    </section>
-    <section>
-        <h1>Verbs vs Nouns</h1>
-        <p>[TODO nie za bardzo kminię o co tu chodzi]</p>
-    </section>
-</section>
-<section>
-    <section>
-        <h1>Common problems</h1>
-    </section>
-    <section>
-        <h1>versioning</h1>
-    </section>
-    <section>
-        <h1>http cache</h1>
-    </section>
-    <section>
-        <h1>paging</h1>
-    </section>
-</section>
-<section>
-    <section>
-        <h1>Case study</h1>
-        <p>TODO czym jest utest</p>
-    </section>
-    <section>
-        <h1>Reductions</h1>
-        TODO - statystyki
-    </section>
-    <section>
-        <h1>Movie</h1>
-        TODO - wstawić poprawiony fylm
-    </section>
-    <section>
-        <h1>Scheme</h1>
-        TODO - rysunek z architekturą
-    </section>
-</section>
-<section>
-    <section>
-        <h2>DO WYJEBANIA ODTĄŽ A word about rest</h2>
-
-        <ul class="fragment">
-            <li>Definitely a buzzword</li>
-            <li>Service design pattern, close to HTTP 1.1</li>
-            <li>Guidelines for services layout</li>
-        </ul>
-        <aside class="notes">
-            <span style="color: blue;">Wojtek</span>
-        </aside>
-    </section>
-    <section>
-        <h2>back to the roots</h2>
-        <br/>
-        <img src="img/rest.png" alt="REST" />
-        <aside class="notes">
-            <span style="color: blue;">Wojtek</span>
-        </aside>
-    </section>
-    <section>
-        <div>
-            <table align="center">
-                <caption><b><a name="tab_5_1">Table 5-1: REST Data Elements</a></b></caption>
-                <tbody><tr bgcolor="#039acc">
-                    <th>Data Element</th>
-                    <th>Modern Web Examples</th>
-                </tr><tr>
-                    <td>resource</td>
-                    <td>the intended conceptual target of a hypertext reference</td>
-                </tr><tr>
-                    <td>resource identifier</td>
-                    <td>URL, URN</td>
-                </tr><tr>
-                    <td>representation</td>
-                    <td>HTML document, JPEG image</td>
-                </tr><tr>
-                    <td>representation metadata</td>
-                    <td>media type, last-modified time</td>
-                </tr><tr>
-                    <td>resource metadata</td>
-                    <td>source link, alternates, vary</td>
-                </tr><tr>
-                    <td>control data</td>
-                    <td>if-modified-since, cache-control</td>
-                </tr>
-                </tbody></table>
-        </div>
-        <aside class="notes">
-            <span style="color: blue;">Wojtek</span>
-        </aside>
-    </section>
-    <section>
-        <h2>the "re" in rest</h2>
-        <p>stands for representational</p>
-        <aside class="notes">
-            <span style="color: blue;">Wojtek</span>
-        </aside>
-    </section>
-    <section>
-        <h2>updating resources</h2>
-        <br/>
-        <ul>
-            <li>Creation: POST</li>
-            <li>Modifications: PUT, PATCH (RFC5789)</li>
-        </ul>
-        <aside class="notes">
-            <span style="color: blue;">Wojtek</span>
-        </aside>
-    </section>
-</section>
-<section>
-    <section>
-        <h2>why isn't it perfect for mobile?</h2>
-        <aside class="notes">
-            <span style="color: blue;">Wojtek</span>
-        </aside>
-    </section>
-    <section>
-        <h2>Meet new limitations</h2>
-        <aside class="notes">
-            <span style="color: red;">Maciek</span>
-        </aside>
-    </section>
-    <section>
-        <h2>throughput and latency</h2>
-        <aside class="notes">
-            <span style="color: red;">Maciek</span>
-        </aside>
+        <p>[TODO world.eps with akamai throughput for each continent]</p>
     </section>
     <section>
         <h2>Connection speed market share</h2>
+
         <div>
             <img src="img/cisco_1.jpg" style="float: left; width: 450px; height: 300px;"/>
             <img src="img/cisco_2.jpg" style="float: right; width: 450px; height: 300px;"/>
@@ -301,451 +255,1152 @@
         </aside>
     </section>
     <section>
-        <h2>updating app takes long</h2>
-        <br/>
-        <p>Average submission time:</p>
-        <ul>
-            <li>Android - few minutes</li>
-            <li>iOS - few days</li>
-            <li>Windows Phone - few days</li>
-        </ul>
-        <br/>
-        <br/>
-        <p>How often user updates app?</p>
-        <aside class="notes">
-            <span style="color: red;">Maciek</span>
-        </aside>
-    </section>
-    <section>
-        <h2>language and tools are very limited</h2>
-        <div class="fragment">
-            <p>Exercise: What does it take to call simultaneously several URLs and join results?</p>
-        </div>
-        <aside class="notes">
-            <span style="color: red;">Maciek</span>
-        </aside>
-    </section>
-    <section>
-        <h2>JAVA</h2>
-        <ul>
-            <li>Create an Executor instance</li>
-            <li>Implement Runnable interface for every task</li>
-            <li>Execute all tasks (synchronization?)</li>
-            <li>Render view</li>
-            <li>Exception handling? Tiresome..</li>
-        </ul>
-        <aside class="notes">
-            <span style="color: red;">Maciek</span>
-        </aside>
-    </section>
-    <section>
-        <h1>Groovy</h1>
-        <pre><code data-trim contenteditable style="font-size: 18px; margin-top: 20px;">def result = ""
+        <h1>Data subset</h1>
 
-def threads = (1..3).collect {
-  Thread.start {result += new URL("https://google.com").text}
-}
-
-threads*.join()
-println result
-</code></pre>
-        <aside class="notes">
-            <span style="color: red;">Maciek</span>
-        </aside>
-    </section>
-    <section>
-        <h2>Lower processing power</h2>
-        <aside class="notes">
-            <span style="color: red;">Maciek</span>
-        </aside>
-    </section>
-</section>
-<section>
-    <section>
-        <h2>Patterns (lessons learnt)</h2>
-        <aside class="notes">
-            <span style="color: blue;">Wojtek</span>
-        </aside>
-    </section>
-    <section>
-        <h2>what types of apps do we discuss?</h2>
-
-        <div>
-            <br>
-        </div>
-        <div>Homegrown!</div>
-        <div>Public mobile APIs(?)</div>
-        <aside class="notes">
-            <span style="color: blue;">Wojtek</span>
-        </aside>
-    </section>
-</section>
-<section>
-    <section>
-        <h2>http methods</h2>
-
-        <div>How do you update a small information?</div>
-        <div>POST with the whole object</div>
-        <div>PATCH coming right up</div>
-        <div>
-            <br>
-        </div>
-        <aside class="notes">
-            <span style="color: blue;">Wojtek</span>
-            <span style="color: red;">Maciek</span>
-        </aside>
-    </section>
-    <section>
-        <h2>using actions in paths</h2>
-
-        <div>
-            <br>
-        </div>
-        <div>POST /account/3145/withdraw</div>
-        <div>
-            <br>
-        </div>
-        <div>
-            <br>
-        </div>
-        <div>
-            <br>
-        </div>
-        <aside class="notes">
-            <span style="color: blue;">Wojtek</span>
-            <span style="color: red;">Maciek</span>
-        </aside>
-    </section>
-    <section>
-        <h2>thinner client, more control</h2>
-
-        <div>
-            <ul>
-                <li>analytics</li>
-                <li>bug fixing</li>
-                <li>optimizations</li>
-            </ul>
-        </div>
-        <aside class="notes">
-            <span style="color: red;">Maciek</span>
-        </aside>
-    </section>
-</section>
-<section>
-    <section>
-        <h2>hateoas</h2>
-
-        <div>... and linking between resources</div>
-        <pre>
-            <code>{
-"users" : [
-  {
-    "id": 1234,
-    "name": "Bob",
-    "roles": [
-      {"href": "http://api.example.com/roles/1"},
-      {"href": "http://api.example.com/roles/2"},
-      {"href": "http://api.example.com/roles/3"}
+        <div class="left_compare">
+            <pre>Complete model</pre>
+            <pre><code class="json">{
+  "person": {
+    "id": 12345,
+    "firstName": "John",
+    "lastName": "Doe",
+    "age": 25,
+    "phones": {
+      "home": "800-123-4567",
+      "work": "888-555-0000",
+      "cell": "877-123-1234"
+    },
+    "email": [
+      "jd@example.com",
+      "jd@example.org"
     ],
-  }
-]
-
-}</code>
-        </pre>
-        <div>
-            <br>
-        </div>
-        <aside class="notes">
-            <span style="color: blue;">Wojtek</span>
-            <span style="color: red;">Maciek</span>
-        </aside>
-    </section>
-    <section>
-        <h2>embedded relates</h2>
-
-        <div>
-            <pre><code data-trim contenteditable style="font-size: 18px; margin-top: 20px;">{
-"users" : [
-  {
-    "id": 1234,
-    "name": "Bob",
-    "roles": [
-      {"name": "ADMIN"},
-      {"name": "OPERATOR"},
-      {"name": "USER"}
+    "dateOfBirth": "1980-01-02T00:00:00.000Z",
+    "registered": true,
+    "emergencyContacts": [
+      {
+        "name": "",
+        "phone": "",
+        "email": "",
+        "relationship": "spouse|parent|child|other"
+      }
     ],
+    "address": {
+        "street": "Sesame",
+        "no": 25,
+        "zipCode": "12-321",
+        "state": "NY",
+        "country": "US"
+    }
   }
-]
-
 }</code></pre>
         </div>
-        <aside class="notes">
-            <span style="color: red;">Maciek</span>
-        </aside>
+        <div class="right_compare">
+            <pre>Trimmed model</pre>
+            <pre><code class="json">{
+    "firstName": "John",
+    "lastName": "Doe",
+    "age": 25,
+    "country": "US"
+}</code></pre>
+        </div>
     </section>
     <section>
-        <h2>multiple calls from mobile</h2>
+        <h1>Compress data (gzip)</h1>
+        <div class="left_compare">
+            <pre>Full: 222910 bytes
+GZIP: 32128 bytes (14%)</pre>
+            <pre><code class="java">{
+"people": [
+    {
+        "firstName": "Jason",
+        "lastName": "Page",
+        "username": "jasonp",
+        "isMale": true,
+        "phone": "142-808-3743",
+        "nid": "12252671714"
+    },
+    {
+        "firstName": "Nathaniel",
+        "lastName": "Chaney",
+        "username": "nchaney",
+        "isMale": true,
+        "phone": "481-659-731",
+        "nid": "55122958778"
+    },
+    {
+        "firstName": "Alexis",
+        "lastName": "Christensen",
+        "username": "alexisc",
+        "isMale": false,
+        "phone": "802-046-8689",
+        "nid": "13240667404"
+    },
+    {
+        "firstName": "Sophie",
+        "lastName": "Duke",
+        "username": "sophied",
+        "isMale": false,
+        "phone": "316-701-3331",
+        "nid": "96071009282"
+    },
+    {
+        "firstName": "Aria",
+        "lastName": "Wolf",
+        "username": "ariaw",
+        "isMale": false,
+        "phone": "682-172-2915",
+        "nid": "12231830224"
+    },
+    {
+        "firstName": "Sebastian",
+        "lastName": "Hogan",
+        "username": "sebastianh",
+        "isMale": true,
+        "phone": "096-033-8930",
+        "nid": "65082565494"
+    },
+    {
+        "firstName": "Austin",
+        "lastName": "Rice",
+        "username": "austinr",
+        "isMale": true,
+        "phone": "558-871-007",
+        "nid": "91102544132"
+    },
+    {
+        "firstName": "Elijah",
+        "lastName": "Savage",
+        "username": "esavage",
+        "isMale": true,
+        "phone": "009-900-8985",
+        "nid": "10301742394"
+    },
+    {
+        "firstName": "Colton",
+        "lastName": "Morris",
+        "username": "cmorris",
+        "isMale": true,
+        "phone": "029-957-8223",
+        "nid": "84062095076"
+    },
+    {
+        "firstName": "Juan",
+        "lastName": "Bass",
+        "username": "jbass",
+        "isMale": true,
+        "phone": "701-810-3457",
+        "nid": "10311068954"
+    },
+    {
+        "firstName": "Brody",
+        "lastName": "Reese",
+        "username": "breese",
+        "isMale": true,
+        "phone": "320-610-636",
+        "nid": "82112959596"
+    },
+    {
+        "firstName": "Stella",
+        "lastName": "Bernard",
+        "username": "sbernard",
+        "isMale": false,
+        "phone": "134-462-1924",
+        "nid": "03272935528"
+    },
+    {
+        "firstName": "Isaac",
+        "lastName": "Webb",
+        "username": "iwebb",
+        "isMale": true,
+        "phone": "136-000-422",
+        "nid": "10231649814"
+    },
+    {
+        "firstName": "Jackson",
+        "lastName": "Bryan",
+        "username": "jacksonb",
+        "isMale": true,
+        "phone": "629-900-7729",
+        "nid": "83071189716"
+    },
+    {
+        "firstName": "Liam",
+        "lastName": "Beard",
+        "username": "lbeard",
+        "isMale": true,
+        "phone": "327-639-010",
+        "nid": "86050552116"
+    },
+    {
+        "firstName": "Parker",
+        "lastName": "Duffy",
+        "username": "pduffy",
+        "isMale": true,
+        "phone": "484-829-6473",
+        "nid": "56122687578"
+    },
+    {
+        "firstName": "Lucy",
+        "lastName": "Moody",
+        "username": "lucym",
+        "isMale": false,
+        "phone": "723-670-5321",
+        "nid": "77051444320"
+    },
+    {
+        "firstName": "Aaliyah",
+        "lastName": "Leonard",
+        "username": "aleonard",
+        "isMale": false,
+        "phone": "005-293-048",
+        "nid": "08281195048"
+    },
+    {
+        "firstName": "Brody",
+        "lastName": "Norris",
+        "username": "brodyn",
+        "isMale": true,
+        "phone": "789-653-2217",
+        "nid": "58050880078"
+    },
+    {
+        "firstName": "Juan",
+        "lastName": "Valenzuela",
+        "username": "juanv",
+        "isMale": true,
+        "phone": "060-065-140",
+        "nid": "93052612612"
+    },
+    {
+        "firstName": "Jocelyn",
+        "lastName": "Collins",
+        "username": "jcollins",
+        "isMale": false,
+        "phone": "010-257-964",
+        "nid": "65083166064"
+    },
+    {
+        "firstName": "Bentley",
+        "lastName": "Welch",
+        "username": "bentleyw",
+        "isMale": true,
+        "phone": "068-620-269",
+        "nid": "09293076518"
+    }
+]
+}
+            </code></pre>
+        </div>
+        <div class="right_compare">
+            <pre>Full: 48 bytes
+GZIP: 60 bytes (125%)</pre>
+            <pre><code class="java">{
+  "firstName": "Arianna",
+  "lastName": "Mcknight"
+}
+            </code></pre>
+        </div>
+    </section>
+    <section>
+        <h1>Expansion</h1>
 
-        <div>
-            same service?
-            different services?
+        <div class="left_compare">
+            <pre>GET /people/</pre>
+            <pre><code class="java">{
+"people": [
+    {
+        "firstName": "Jason",
+        "lastName": "Page",
+        "username": "jasonp",
+        "isMale": true,
+        "phone": "142-808-3743",
+        "nid": "12252671714"
+    },
+    {
+        "firstName": "Nathaniel",
+        "lastName": "Chaney",
+        "username": "nchaney",
+        "isMale": true,
+        "phone": "481-659-731",
+        "nid": "55122958778"
+    },
+    {
+        "firstName": "Alexis",
+        "lastName": "Christensen",
+        "username": "alexisc",
+        "isMale": false,
+        "phone": "802-046-8689",
+        "nid": "13240667404"
+    },
+    {
+        "firstName": "Sophie",
+        "lastName": "Duke",
+        "username": "sophied",
+        "isMale": false,
+        "phone": "316-701-3331",
+        "nid": "96071009282"
+    },
+    {
+        "firstName": "Aria",
+        "lastName": "Wolf",
+        "username": "ariaw",
+        "isMale": false,
+        "phone": "682-172-2915",
+        "nid": "12231830224"
+    },
+    {
+        "firstName": "Sebastian",
+        "lastName": "Hogan",
+        "username": "sebastianh",
+        "isMale": true,
+        "phone": "096-033-8930",
+        "nid": "65082565494"
+    },
+    {
+        "firstName": "Austin",
+        "lastName": "Rice",
+        "username": "austinr",
+        "isMale": true,
+        "phone": "558-871-007",
+        "nid": "91102544132"
+    },
+    {
+        "firstName": "Elijah",
+        "lastName": "Savage",
+        "username": "esavage",
+        "isMale": true,
+        "phone": "009-900-8985",
+        "nid": "10301742394"
+    },
+    {
+        "firstName": "Colton",
+        "lastName": "Morris",
+        "username": "cmorris",
+        "isMale": true,
+        "phone": "029-957-8223",
+        "nid": "84062095076"
+    },
+    {
+        "firstName": "Juan",
+        "lastName": "Bass",
+        "username": "jbass",
+        "isMale": true,
+        "phone": "701-810-3457",
+        "nid": "10311068954"
+    },
+    {
+        "firstName": "Brody",
+        "lastName": "Reese",
+        "username": "breese",
+        "isMale": true,
+        "phone": "320-610-636",
+        "nid": "82112959596"
+    },
+    {
+        "firstName": "Stella",
+        "lastName": "Bernard",
+        "username": "sbernard",
+        "isMale": false,
+        "phone": "134-462-1924",
+        "nid": "03272935528"
+    },
+    {
+        "firstName": "Isaac",
+        "lastName": "Webb",
+        "username": "iwebb",
+        "isMale": true,
+        "phone": "136-000-422",
+        "nid": "10231649814"
+    },
+    {
+        "firstName": "Jackson",
+        "lastName": "Bryan",
+        "username": "jacksonb",
+        "isMale": true,
+        "phone": "629-900-7729",
+        "nid": "83071189716"
+    },
+    {
+        "firstName": "Liam",
+        "lastName": "Beard",
+        "username": "lbeard",
+        "isMale": true,
+        "phone": "327-639-010",
+        "nid": "86050552116"
+    },
+    {
+        "firstName": "Parker",
+        "lastName": "Duffy",
+        "username": "pduffy",
+        "isMale": true,
+        "phone": "484-829-6473",
+        "nid": "56122687578"
+    },
+    {
+        "firstName": "Lucy",
+        "lastName": "Moody",
+        "username": "lucym",
+        "isMale": false,
+        "phone": "723-670-5321",
+        "nid": "77051444320"
+    },
+    {
+        "firstName": "Aaliyah",
+        "lastName": "Leonard",
+        "username": "aleonard",
+        "isMale": false,
+        "phone": "005-293-048",
+        "nid": "08281195048"
+    },
+    {
+        "firstName": "Brody",
+        "lastName": "Norris",
+        "username": "brodyn",
+        "isMale": true,
+        "phone": "789-653-2217",
+        "nid": "58050880078"
+    },
+    {
+        "firstName": "Juan",
+        "lastName": "Valenzuela",
+        "username": "juanv",
+        "isMale": true,
+        "phone": "060-065-140",
+        "nid": "93052612612"
+    },
+    {
+        "firstName": "Jocelyn",
+        "lastName": "Collins",
+        "username": "jcollins",
+        "isMale": false,
+        "phone": "010-257-964",
+        "nid": "65083166064"
+    },
+    {
+        "firstName": "Bentley",
+        "lastName": "Welch",
+        "username": "bentleyw",
+        "isMale": true,
+        "phone": "068-620-269",
+        "nid": "09293076518"
+    }
+]
+}
+            </code></pre>
         </div>
-        <div>
-            <br>
+        <div class="right_compare">
+            <pre>GET /people?fields=[firstName, lastName]</pre>
+            <pre><code class="java">{
+"people": [
+    {
+        "firstName": "Kennedy",
+        "lastName": "Cote"
+    },
+    {
+        "firstName": "Jocelyn",
+        "lastName": "Parsons"
+    },
+    {
+        "firstName": "Mia",
+        "lastName": "Key"
+    },
+    {
+        "firstName": "Jackson",
+        "lastName": "Whitney"
+    },
+    {
+        "firstName": "Nevaeh",
+        "lastName": "Torres"
+    },
+    {
+        "firstName": "Samuel",
+        "lastName": "Best"
+    },
+    {
+        "firstName": "Ellie",
+        "lastName": "Hooper"
+    },
+    {
+        "firstName": "Kevin",
+        "lastName": "White"
+    },
+    {
+        "firstName": "Xavier",
+        "lastName": "Wooten"
+    },
+    {
+        "firstName": "Naomi",
+        "lastName": "Chan"
+    },
+    {
+        "firstName": "Owen",
+        "lastName": "Ramsey"
+    },
+    {
+        "firstName": "Victoria",
+        "lastName": "Hunter"
+    },
+    {
+        "firstName": "Harper",
+        "lastName": "Boone"
+    },
+    {
+        "firstName": "Nicholas",
+        "lastName": "Mcknight"
+    },
+    {
+        "firstName": "Kaylee",
+        "lastName": "Stone"
+    },
+    {
+        "firstName": "Hudson",
+        "lastName": "Schultz"
+    },
+    {
+        "firstName": "Thomas",
+        "lastName": "Copeland"
+    },
+    {
+        "firstName": "Madeline",
+        "lastName": "Odom"
+    },
+    {
+        "firstName": "Colton",
+        "lastName": "Humphrey"
+    },
+    {
+        "firstName": "Alexis",
+        "lastName": "Chandler"
+    }
+]
+}
+            </code></pre>
         </div>
-        <aside class="notes">
-            <span style="color: red;">Maciek</span>
-        </aside>
     </section>
     <section>
-        <h2>Paging</h2>
-        <ul>
-            <li>Should be big enough not to require to many connections</li>
-            <li>Should let the client minimize the risk of loosing data</li>
-        </ul>
-        <aside class="notes">
-            <span style="color: blue;">Wojtek</span>
-            <span style="color: red;">Maciek</span>
-        </aside>
+        <h1>XML vs JSON</h1>
+<div class="left_compare">
+                        <pre>PLAIN 171120 bytes
+GZIP  30855  bytes
+</pre>
+
+            <pre><code class="java"><people>
+  <person>
+    <firstName>Grayson</firstName>
+    <lastName>Wilkins</lastName>
+    <username>graysonw</username>
+    <isMale>true</isMale>
+    <phone>197-391-9087</phone>
+    <nid>39113050916</nid>
+  </person>
+  <person>
+    <firstName>Nathaniel</firstName>
+    <lastName>Page</lastName>
+    <username>npage</username>
+    <isMale>true</isMale>
+    <phone>922-083-8066</phone>
+    <nid>87061196536</nid>
+  </person>
+  <person>
+    <firstName>Annabelle</firstName>
+    <lastName>Parks</lastName>
+    <username>aparks</username>
+    <isMale>false</isMale>
+    <phone>860-706-550</phone>
+    <nid>10221048164</nid>
+  </person>
+  <person>
+    <firstName>Carlos</firstName>
+    <lastName>Robbins</lastName>
+    <username>crobbins</username>
+    <isMale>true</isMale>
+    <phone>633-199-3647</phone>
+    <nid>85022650976</nid>
+  </person>
+  <person>
+    <firstName>Sebastian</firstName>
+    <lastName>Mckenzie</lastName>
+    <username>sebastianm</username>
+    <isMale>true</isMale>
+    <phone>031-821-2542</phone>
+    <nid>08221481578</nid>
+  </person>
+  <person>
+    <firstName>Aiden</firstName>
+    <lastName>Mercado</lastName>
+    <username>aidenm</username>
+    <isMale>true</isMale>
+    <phone>413-006-9553</phone>
+    <nid>01302174138</nid>
+  </person>
+  <person>
+    <firstName>Jacob</firstName>
+    <lastName>Terry</lastName>
+    <username>jacobt</username>
+    <isMale>true</isMale>
+    <phone>674-749-7019</phone>
+    <nid>09312515478</nid>
+  </person>
+  <person>
+    <firstName>Hannah</firstName>
+    <lastName>Hart</lastName>
+    <username>hhart</username>
+    <isMale>false</isMale>
+    <phone>489-395-5946</phone>
+    <nid>62042618284</nid>
+  </person>
+  <person>
+    <firstName>Jaxon</firstName>
+    <lastName>Wagner</lastName>
+    <username>jaxonw</username>
+    <isMale>true</isMale>
+    <phone>500-770-244</phone>
+    <nid>71081634910</nid>
+  </person>
+  <person>
+    <firstName>Chloe</firstName>
+    <lastName>Sanders</lastName>
+    <username>csanders</username>
+    <isMale>false</isMale>
+    <phone>714-971-5327</phone>
+    <nid>12302121384</nid>
+  </person>
+  <person>
+    <firstName>Christopher</firstName>
+    <lastName>Brennan</lastName>
+    <username>christopherb</username>
+    <isMale>true</isMale>
+    <phone>272-938-005</phone>
+    <nid>06253116718</nid>
+  </person>
+  <person>
+    <firstName>Lydia</firstName>
+    <lastName>Montoya</lastName>
+    <username>lmontoya</username>
+    <isMale>false</isMale>
+    <phone>106-629-312</phone>
+    <nid>13221541804</nid>
+  </person>
+  <person>
+    <firstName>Adrian</firstName>
+    <lastName>Carver</lastName>
+    <username>acarver</username>
+    <isMale>true</isMale>
+    <phone>355-762-7781</phone>
+    <nid>97111290392</nid>
+  </person>
+  <person>
+    <firstName>Samuel</firstName>
+    <lastName>Mccullough</lastName>
+    <username>samuelm</username>
+    <isMale>true</isMale>
+    <phone>382-502-589</phone>
+    <nid>66123176094</nid>
+  </person>
+  <person>
+    <firstName>Landon</firstName>
+    <lastName>Grimes</lastName>
+    <username>lgrimes</username>
+    <isMale>true</isMale>
+    <phone>082-649-575</phone>
+    <nid>10272237014</nid>
+  </person>
+  <person>
+    <firstName>Isabella</firstName>
+    <lastName>Merrill</lastName>
+    <username>isabellam</username>
+    <isMale>false</isMale>
+    <phone>795-762-4257</phone>
+    <nid>12292864824</nid>
+  </person>
+  <person>
+    <firstName>Landon</firstName>
+    <lastName>Dale</lastName>
+    <username>ldale</username>
+    <isMale>true</isMale>
+    <phone>959-023-135</phone>
+    <nid>41081330132</nid>
+  </person>
+  <person>
+    <firstName>Madeline</firstName>
+    <lastName>Spence</lastName>
+    <username>mspence</username>
+    <isMale>false</isMale>
+    <phone>116-600-1377</phone>
+    <nid>54070686488</nid>
+  </person>
+  <person>
+    <firstName>Damian</firstName>
+    <lastName>Henderson</lastName>
+    <username>damianh</username>
+    <isMale>true</isMale>
+    <phone>091-797-810</phone>
+    <nid>37091971136</nid>
+  </person>
+  <person>
+    <firstName>Dominic</firstName>
+    <lastName>Hurley</lastName>
+    <username>dominich</username>
+    <isMale>true</isMale>
+    <phone>842-593-567</phone>
+    <nid>12281078514</nid>
+  </person>
+  <person>
+    <firstName>Mackenzie</firstName>
+    <lastName>Cooper</lastName>
+    <username>mcooper</username>
+    <isMale>false</isMale>
+    <phone>335-422-488</phone>
+    <nid>12292859744</nid>
+  </person>
+  <person>
+    <firstName>Carson</firstName>
+    <lastName>Barnes</lastName>
+    <username>cbarnes</username>
+    <isMale>true</isMale>
+    <phone>649-653-776</phone>
+    <nid>13231549814</nid>
+  </person>
+  <person>
+    <firstName>Elizabeth</firstName>
+    <lastName>Sutton</lastName>
+    <username>esutton</username>
+    <isMale>false</isMale>
+    <phone>205-975-232</phone>
+    <nid>86070205666</nid>
+  </person>
+</people>
+            </code></pre>
+        </div>
+        <div class="right_compare">
+
+            <pre>PLAIN 121115 bytes (70%)
+GZIP  29553  bytes (96%)
+</pre>
+            <pre><code class="java">{
+"people": [
+    {
+        "firstName": "Jason",
+        "lastName": "Page",
+        "username": "jasonp",
+        "isMale": true,
+        "phone": "142-808-3743",
+        "nid": "12252671714"
+    },
+    {
+        "firstName": "Nathaniel",
+        "lastName": "Chaney",
+        "username": "nchaney",
+        "isMale": true,
+        "phone": "481-659-731",
+        "nid": "55122958778"
+    },
+    {
+        "firstName": "Alexis",
+        "lastName": "Christensen",
+        "username": "alexisc",
+        "isMale": false,
+        "phone": "802-046-8689",
+        "nid": "13240667404"
+    },
+    {
+        "firstName": "Sophie",
+        "lastName": "Duke",
+        "username": "sophied",
+        "isMale": false,
+        "phone": "316-701-3331",
+        "nid": "96071009282"
+    },
+    {
+        "firstName": "Aria",
+        "lastName": "Wolf",
+        "username": "ariaw",
+        "isMale": false,
+        "phone": "682-172-2915",
+        "nid": "12231830224"
+    },
+    {
+        "firstName": "Sebastian",
+        "lastName": "Hogan",
+        "username": "sebastianh",
+        "isMale": true,
+        "phone": "096-033-8930",
+        "nid": "65082565494"
+    },
+    {
+        "firstName": "Austin",
+        "lastName": "Rice",
+        "username": "austinr",
+        "isMale": true,
+        "phone": "558-871-007",
+        "nid": "91102544132"
+    },
+    {
+        "firstName": "Elijah",
+        "lastName": "Savage",
+        "username": "esavage",
+        "isMale": true,
+        "phone": "009-900-8985",
+        "nid": "10301742394"
+    },
+    {
+        "firstName": "Colton",
+        "lastName": "Morris",
+        "username": "cmorris",
+        "isMale": true,
+        "phone": "029-957-8223",
+        "nid": "84062095076"
+    },
+    {
+        "firstName": "Juan",
+        "lastName": "Bass",
+        "username": "jbass",
+        "isMale": true,
+        "phone": "701-810-3457",
+        "nid": "10311068954"
+    },
+    {
+        "firstName": "Brody",
+        "lastName": "Reese",
+        "username": "breese",
+        "isMale": true,
+        "phone": "320-610-636",
+        "nid": "82112959596"
+    },
+    {
+        "firstName": "Stella",
+        "lastName": "Bernard",
+        "username": "sbernard",
+        "isMale": false,
+        "phone": "134-462-1924",
+        "nid": "03272935528"
+    },
+    {
+        "firstName": "Isaac",
+        "lastName": "Webb",
+        "username": "iwebb",
+        "isMale": true,
+        "phone": "136-000-422",
+        "nid": "10231649814"
+    },
+    {
+        "firstName": "Jackson",
+        "lastName": "Bryan",
+        "username": "jacksonb",
+        "isMale": true,
+        "phone": "629-900-7729",
+        "nid": "83071189716"
+    },
+    {
+        "firstName": "Liam",
+        "lastName": "Beard",
+        "username": "lbeard",
+        "isMale": true,
+        "phone": "327-639-010",
+        "nid": "86050552116"
+    },
+    {
+        "firstName": "Parker",
+        "lastName": "Duffy",
+        "username": "pduffy",
+        "isMale": true,
+        "phone": "484-829-6473",
+        "nid": "56122687578"
+    },
+    {
+        "firstName": "Lucy",
+        "lastName": "Moody",
+        "username": "lucym",
+        "isMale": false,
+        "phone": "723-670-5321",
+        "nid": "77051444320"
+    },
+    {
+        "firstName": "Aaliyah",
+        "lastName": "Leonard",
+        "username": "aleonard",
+        "isMale": false,
+        "phone": "005-293-048",
+        "nid": "08281195048"
+    },
+    {
+        "firstName": "Brody",
+        "lastName": "Norris",
+        "username": "brodyn",
+        "isMale": true,
+        "phone": "789-653-2217",
+        "nid": "58050880078"
+    },
+    {
+        "firstName": "Juan",
+        "lastName": "Valenzuela",
+        "username": "juanv",
+        "isMale": true,
+        "phone": "060-065-140",
+        "nid": "93052612612"
+    },
+    {
+        "firstName": "Jocelyn",
+        "lastName": "Collins",
+        "username": "jcollins",
+        "isMale": false,
+        "phone": "010-257-964",
+        "nid": "65083166064"
+    },
+    {
+        "firstName": "Bentley",
+        "lastName": "Welch",
+        "username": "bentleyw",
+        "isMale": true,
+        "phone": "068-620-269",
+        "nid": "09293076518"
+    }
+]
+}
+            </code></pre>
+        </div>
     </section>
 </section>
 <section>
     <section>
-        <h2>http cache</h2>
+        <h1>Toolbox</h1>
+
+        <p>[rysunek - zadanie - rownolegle zapytania]</p>
+    </section>
+    <section>
+        <h2>Client code</h2>
+        TODO większ okienko
+        <pre><code># PersonDataDownloader.m
+
+
+#import "PersonDataDownloader_M.h"
+#import "Person.h"
+#import "TaskCallsSynchronizer.h"
+
+
+@interface PersonDataDownloader_M ()
+@property(nonatomic, strong) TaskCallsSynchronizer *synchronizer;
+@end
+
+@implementation PersonDataDownloader_M
+
+- (void)downloadDataForPerson:(Person *)person {
+    self.synchronizer = [TaskCallsSynchronizer new];
+    self.synchronizer.completionHandler = ^(NSArray *taskDataObjects, NSArray *taskResponses) {
+        // Merge downloaded data here and perform the rest...
+    };
+
+    self.synchronizer.errorHandler = ^(NSArray *errors) {
+        NSLog(@"All calls went bad...");
+    };
+
+    NSURLSessionDataTask *personalInfoTask = [self personalInfoTaskForPerson:person synchronizer:self.synchronizer];
+    NSURLSessionDataTask *accountNumberTask = [self accountNumberTaskForPerson:person synchronizer:self.synchronizer];
+
+    [self.synchronizer addTask:personalInfoTask withName:@"InfoTask"];
+    [self.synchronizer addTask:accountNumberTask withName:@"AccountTask"];
+
+    [personalInfoTask resume];
+    [accountNumberTask resume];
+}
+
+#pragma mark - Tasks
+
+- (NSURLSessionDataTask *)personalInfoTaskForPerson:(Person *)person synchronizer:(TaskCallsSynchronizer *)synchronizer {
+    NSURLSession *session = [NSURLSession sharedSession];
+    __typeof(synchronizer) __weak weakSynchronizer = synchronizer;
+    NSURLSessionDataTask *personalInfoTask = [session dataTaskWithURL:[self urlForPersonsPersonalInfo:person]
+                                                    completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
+                NSString *taskName = @"InfoTask";
+                if (data && !error) {
+                    [weakSynchronizer completeTaskWithName:taskName data:data response:response];
+                } else {
+                    [weakSynchronizer errorDidOccur:error forTaskWithName:taskName];
+                }
+            }];
+    return personalInfoTask;
+}
+
+- (NSURLSessionDataTask *)accountNumberTaskForPerson:(Person *)person synchronizer:(TaskCallsSynchronizer *)synchronizer {
+    NSURLSession *session = [NSURLSession sharedSession];
+    __typeof(synchronizer) __weak weakSynchronizer = synchronizer;
+    NSURLSessionDataTask *accountNumberTask = [session dataTaskWithURL:[self urlForPersonsAccountNumber:person]
+                                                     completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
+                NSString *taskName = @"AccountTask";
+                if (data && !error) {
+                    [weakSynchronizer completeTaskWithName:taskName data:data response:response];
+                } else {
+                    [weakSynchronizer errorDidOccur:error forTaskWithName:taskName];
+                }
+            }];
+    return accountNumberTask;
+}
+
+#pragma mark - URLs
+
+- (NSURL *)urlForPersonsPersonalInfo:(Person *)person {
+    NSString *urlString = [NSString stringWithFormat:@"http://e1.com/personalInfo/%ld", (long)person.id];
+    return [[NSURL alloc] initWithString:urlString];
+}
+
+- (NSURL *)urlForPersonsAccountNumber:(Person *)person {
+    NSString *urlString = [NSString stringWithFormat:@"http://e2.com/accountNumber/%ld", (long)person.id];
+    return [[NSURL alloc] initWithString:urlString];
+}
+
+@end
+
+
+
+# TaskCallSynchronizer.m
+
+
+
+#import "TaskCallsSynchronizer.h"
+
+
+@interface TaskCallsSynchronizer ()
+@property(nonatomic, readonly) NSMapTable *tasksMap;
+@property(nonatomic, readonly) NSMutableArray *dataObjects;
+@property(nonatomic, readonly) NSMutableArray *responses;
+@property(nonatomic, readonly) NSMutableArray *errors;
+@property(nonatomic) BOOL errorEncountered;
+@end
+
+@implementation TaskCallsSynchronizer
+
+- (id)init {
+    self = [super init];
+    if (self) {
+        _tasksMap = [NSMapTable strongToWeakObjectsMapTable];
+        _dataObjects = [NSMutableArray array];
+        _responses = [NSMutableArray array];
+        _errors = [NSMutableArray array];
+    }
+
+    return self;
+}
+
+- (void)addTask:(NSURLSessionDataTask *)task withName:(NSString *)name {
+    [self.tasksMap setObject:task forKey:name];
+}
+
+- (void)completeTaskWithName:(NSString *)name data:(NSData *)data response:(NSURLResponse *)response {
+    @synchronized (self) {
+        NSURLSessionDataTask *task = [self.tasksMap objectForKey:name];
+        BOOL isDownloadStateValid = task.state != NSURLSessionTaskStateCompleted && !self.errorEncountered;
+        if (isDownloadStateValid) {
+            NSLog(@"Ups, something's wrong.");
+        } else {
+            [self.dataObjects addObject:data];
+            [self.responses addObject:response];
+            [self.tasksMap removeObjectForKey:name];
+
+            if ([self.tasksMap count] == 0 && self.completionHandler) {
+                self.completionHandler(self.dataObjects, self.responses);
+            }
+        }
+    }
+}
+
+- (void)errorDidOccur:(NSError *)error forTaskWithName:(NSString *)name {
+    @synchronized (self) {
+        self.errorEncountered = YES;
+        [self.errors addObject:error];
+        [self.tasksMap removeObjectForKey:name];
+
+        if ([self.tasksMap count] == 0 && self.errorHandler) {
+            self.errorHandler(self.errors);
+        }
+    }
+}
+
+@end
+
+
+        </code></pre>
+    </section>
+    <section>
+        <h3>Automated testing sucks!</h3>
+
+        <img src="img/testing_sucks.png">
+    </section>
+    <section>
+        <h2>Updating app takes long</h2>
+
+        <p>[rysunek update aplikacji]</p>
+    </section>
+    <section>
+        <h1>server side version</h1>
+
+        <p>[TODO przykład z gpars]</p>
+    </section>
+    <section>
+        <h1>Verbs vs Nouns</h1>
+<div class="left_compare">
+            <pre>POST /following</pre>
+            <pre><code class="json">{
+  "from": 123,
+  "to": 456
+}</code></pre>
+        </div>
+        <div class="right_compare">
+            <pre>POST /users/456/follow</pre>
+        </div>
+    </section>
+</section>
+<section>
+    <section>
+        <h1>Common problems</h1>
+    </section>
+    <section>
+        <h1>versioning</h1>
+        <br/>
+        <ul>
+            <li class="fragment">http://api.example.com/v1</li>
+            <li class="fragment">application/vnd.example.com.v1+json</li>
+            <li class="fragment">http://v1.api.example.com</li>
+        </ul>
+    </section>
+    <section>
+        <h1>http cache (TODO)</h1>
+        <br/>
+        <pre class="fragment" style="text-align: center;">Expires: Sat, 26 Jul 1997 05:00:00 GMT</pre>
+        <br/>
         <ul class="fragment">
-            <li>iOS (AfNetworking + NSURLCache)</li>
+            <li>iOS (AFNetworking + NSURLCache)</li>
             <li>Android (Retrofit + OkHttp + HttpResponseCache)</li>
         </ul>
-        <aside class="notes">
-            <span style="color: blue;">Wojtek</span>
-            <span style="color: red;">Maciek</span>
-        </aside>
+    </section>
+    <section>
+        <h1>paging (TODO)</h1>
     </section>
 </section>
 <section>
     <section>
-        <h2>minimizing data size</h2>
-        <aside class="notes">
-            <span style="color: red;">Maciek</span>
-        </aside>
-    </section>
-    <section>
-        <h2>example</h2>
-        <pre><code>{
-    "appKey": null,
-    "applicationFeatures": [
-        "TM_HTML_COMPLETE",
-        "ACCESS_SPUTNIK_IM_APPLICATION",
-        "APPHANCE_INTEGRATION",
-        "TM_TOP_TESTERS",
-        "VOLTRON_DASHBOARD"
-    ],
-    "authDate": 1396788850862,
-    "chatUUID": "1234567890",
-    "code": "4c4712a4141d261ec0ca8f90379506854c4712a4141d261ec0ca8f90379506854c4712a4141d261ec0ca8f90379506854c4712a4141d261ec0ca8f9037950685",
-    "grantedAuthorities": [
-        "PERMISSION_BUG_PAYOUT_VIEW",
-        "PERMISSION_PROJECT_VIEW",
-        "PERMISSION_TESTER_PAYMENTS_VIEW",
-        "PERMISSION_USER_ACCOUNT_VIEW",
-        "PERMISSION_REVIEW_PAYOUT_VIEW",
-        "PERMISSION_TEST_CYCLE_VIEW",
-        "PERMISSION_USER_ACCOUNT_CLOSE",
-        "PERMISSION_USER_ACCOUNT_EDIT",
-        "PERMISSION_BUGS_AND_TEST_CASES_VIEW",
-        "PERMISSION_BUG_EDIT",
-        "PERMISSION_TEST_CYCLE_REVIEW_READ",
-        "PERMISSION_PRODUCT_VIEW",
-        "PERMISSION_BUG_CLIPBOARD_COPY",
-        "PERMISSION_REQUESTED_INFO_SEND",
-        "PERMISSION_TEST_RUN_TEST_CASE_SELF_ASSIGN",
-        "PERMISSION_BUG_DISCARD",
-        "PERMISSION_BUG_DISPUTE",
-        "PERMISSION_USABILITY_SURVEY_RESPONSE_VIEW",
-        "PERMISSION_USABILITY_SURVEY_RESPONSE_DISCARD",
-        "PERMISSION_USABILITY_SURVEY_RESPONSE_EDIT",
-        "PERMISSION_USABILITY_SURVEY_RESPONSE_CREATE",
-        "PERMISSION_TEST_CYCLE_COVERAGE_VIEW",
-        "PERMISSION_TEST_RUN_ASSIGNMENT_EXECUTE",
-        "PERMISSION_TEST_CYCLE_PRODUCT_DESCRIPTION_VIEW",
-        "PERMISSION_TEST_CYCLE_OBJECTIVES_VIEW",
-        "PERMISSION_BUG_CREATE",
-        "PERMISSION_TEST_CASE_TAB_VIEW",
-        "PERMISSION_TEST_CYCLE_REVIEW_CREATE",
-        "PERMISSION_TEST_RUN_RESULT_ATTACHMENT_UPLOAD",
-        "PERMISSION_USABILITY_SURVEY_RESPONSE_PAYOUT_EDIT",
-        "PERMISSION_BUG_FIX_WORTHINESS_PRICE_VIEW",
-        "PERMISSION_TEST_CYCLE_REVIEW_EDIT",
-        "PERMISSION_USABILITY_SURVEY_RESPONSE_PAYOUT_VIEW",
-        "PERMISSION_TEST_CYCLE_REVIEW_DISCARD",
-        "PERMISSION_TEST_CASE_PAYOUT_VIEW",
-        "PERMISSION_TEST_CYCLE_REVIEW_MESSAGE_CREATE",
-        "DATA_GRID_TESTER_VIEW",
-        "PERMISSION_USABILITY_SURVEY_PAYOUT_VIEW"
-    ],
-    "impsersonatedUserId": null,
-    "ipAddress": "127.0.0.1",
-    "roles": [
-        3
-    ],
-    "token": "43v4j3gv4jh3n23z896b2c32xbfekszb3",
-    "userId": 1234,
-    "userName": "frank@sinatra.com"
-}
-</code></pre>
-        <aside class="notes">
-            <span style="color: blue;">Wojtek</span>
-        </aside>
-    </section>
-    <section>
-        <h2>Data format</h2>
+        <h2>Case study - utest app</h2>
         <br/>
-        <table class="reveal">
-            <tr>
-                <td style="text-align: center">XML</td>
-                <td style="text-align: center">JSON</td>
-            </tr>
-            <tr>
-                <td style="text-align: center">5234 bytes</td>
-                <td style="text-align: center">1934 bytes (37%)</td>
-            </tr>
-        </table>
-        <aside class="notes">
-            <span style="color: red;">Maciek</span>
-        </aside>
+        <ul>
+            <li>In the wild testing service</li>
+            <li>Testers located all over the world</li>
+            <li>Legacy API</li>
+        </ul>
     </section>
     <section>
-        <h2>fields subsets</h2>
+        <h1>Reductions</h1>
         <br/>
-        <table class="reveal">
-            <tr>
-                <td style="text-align: center">JSON</td>
-                <td style="text-align: center">JSON subset</td>
-            </tr>
-            <tr>
-                <td style="text-align: center">1934 bytes</td>
-                <td style="text-align: center">88 bytes (4.5%)</td>
-            </tr>
-        </table>
-        <aside class="notes">
-            <span style="color: red;">Maciek</span>
-        </aside>
-    </section>
-    <section>
-        <h2>compression</h2>
-        <br/>
-        <table class="reveal">
-            <tr>
-                <td style="text-align: center">JSON subset</td>
-                <td style="text-align: center">JSON subset + GZIP</td>
-            </tr>
-            <tr>
-                <td style="text-align: center">88 bytes</td>
-                <td style="text-align: center">101 bytes (115%)</td>
-            </tr>
-        </table>
-        <br/>
-        <br/>
-        <p>Overall: <b>1,9%</b> of initial size!</p>
-        <aside class="notes">
-            Average 96% less data in uTest
-            <span style="color: red;">Maciek</span>
-        </aside>
-    </section>
-</section>
-<section>
-    <section>
-        <h2>versioning</h2>
-
-        <div>
-            <br>
-        </div>
-        <aside class="notes">
-            <span style="color: blue;">Wojtek</span>
-        </aside>
-    </section>
-    <section>
-        <h2>3 schools of versioning</h2>
-        <aside class="notes">
-            <span style="color: blue;">Wojtek</span>
-        </aside>
-    </section>
-    <section>
-        <h2>path parameter</h2>
-        <br/>
-        <p>http://api.example.com/v1</p>
-        <aside class="notes">
-            <span style="color: blue;">Wojtek</span>
-        </aside>
-    </section>
-    <section>
-        <h2>media type (or custom header)</h2>
-        <br/>
-        <p>application/vnd.example.com.v1+json</p>
-        <aside class="notes">
-            <span style="color: blue;">Wojtek</span>
-        </aside>
-    </section>
-    <section>
-        <h2>subdomain</h2>
-        <br/>
-        <p>http://v1.api.example.com</p>
-        <aside class="notes">
-            <span style="color: blue;">Wojtek</span>
-            <span style="color: red;">Maciek</span>
-        </aside>
-    </section>
-</section>
-<section>
-    <section>
-        <h2>documenting services</h2>
-
-        <div>and swagger</div>
-        <div>
-            <br>
-        </div>
-        <aside class="notes">
-            <span style="color: red;">Maciek</span>
-        </aside>
-    </section>
-</section>
-<section>
-    <section>
-        <h2>case study - utest app</h2>
-        <aside class="notes">
-            <span style="color: blue;">Wojtek</span>
-            <span style="color: red;">Maciek</span>
-        </aside>
-    </section>
-    <section>
-        <h2>joining responses</h2>
-        <br/>
-        <p>Reduced:</p>
         <ul>
             <li>36 to 20 endpoints</li>
             <li>86 to 20 calls (visiting all screens once)</li>
-            <li>parallel requests</li>
+            <li>96% data size reduction (84% without GZIP)</li>
         </ul>
-        <aside class="notes">
-            <span style="color: blue;">Wojtek</span>
-            <span style="color: red;">Maciek</span>
-        </aside>
     </section>
     <section>
-        <h2>video</h2>
-        <video controls="controls" width="800" height="600" name="Video Name" src="utest.mov"></video>
-        <aside class="notes">
-            <span style="color: blue;">Wojtek</span>
-            <span style="color: red;">Maciek</span>
-        </aside>
+        <video controls="controls" width="800" height="600" name="Video Name" src="utest-timer.mov"></video>
     </section>
     <section>
-        <h2>middleware</h2>
-        <img src="facade.png">
-        <aside class="notes">
-            <span style="color: blue;">Wojtek</span>
-            <span style="color: red;">Maciek</span>
-        </aside>
+        <h1>Scheme</h1>
+        TODO - rysunek z architekturą
     </section>
 </section>
 <section>
