@@ -1393,7 +1393,7 @@ def output = withPool(2) {
 }</code></pre>
     </section>
     <section>
-        <h1>Verbs vs Nouns</h1>
+        <h1>Nouns vs Verbs</h1>
 <div class="left_compare" style="margin-top: 100px;">
             <pre style="margin-bottom: 40px;">POST /following</pre>
             <pre><code class="json">{
@@ -1429,9 +1429,36 @@ def output = withPool(2) {
             <li>Android (Retrofit + OkHttp + HttpResponseCache)</li>
         </ul>
     </section>
-    <section>
-        <h1>paging (TODO)</h1>
-    </section>
+  <section>
+    <h1>paging</h1>
+    <br/>
+    <div class="left_compare">
+      <p>GET /users?page=:page_number</p>
+      <ol style="min-width: 400px;">
+        <li>Arthur</li>
+        <li class="fragment semi-fade-out">Bobby</li>
+        <li>Celine</li>
+        <li>Daniel</li>
+        <li class="fragment highlight-green">Eve</li>
+        <li class="fragment highlight-green">Fred</li>
+        <li class="fragment highlight-green">George</li>
+      </ol>
+    </div>
+    <div class="right_compare">
+      <p>Page size 3</p>
+      <p>Page 1: Arthur Bobby Celine</p>
+      <p>Delete: Bobby</p>
+      <p class="fragment">Page 2: Eve Fred George</p>
+    </div>
+  </section>
+  <section>
+    <h3>relative page ref</h3>
+    <br/>
+    <pre style="width: 450px;"><code>{
+  // ...
+  "nextPage": "/users?since=5476238046501"
+}</code></pre>
+  </section>
 </section>
 <section>
     <section>
