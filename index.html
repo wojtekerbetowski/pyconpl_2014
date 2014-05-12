@@ -1382,7 +1382,25 @@ public void download() throws ExecutionException, InterruptedException {
     <section>
         <h1>server side version</h1>
 
-        <p>[TODO przykład z gpars]</p>
+        <pre><code>import groovy.json.JsonSlurper
+import static groovyx.gpars.GParsPool.withPool
+
+def parts = [
+    "http://e1.com/persons/123": ['firstName', 'lastName'],
+    "http://e2.com/accounts/456": ['accountNo'],
+]
+
+def output = withPool(2) {
+  return parts.collectParallel({ url, fields ->
+
+    def json = new JsonSlurper().parse(url as URL)
+
+    return fields.collect ({ field ->
+      ["$field": json[field]]
+    })
+
+  }).flatten().sum()
+}</code></pre>
     </section>
     <section>
         <h1>Verbs vs Nouns</h1>
