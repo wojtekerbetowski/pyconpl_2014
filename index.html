@@ -1175,7 +1175,7 @@ GZIP  29553  bytes (96%)
         <p>[rysunek - zadanie - rownolegle zapytania]</p>
     </section>
     <section>
-        <h2>Client code</h2>
+        <h2>Client code - iOS</h2>
         TODO większ okienko
         <pre><code># PersonDataDownloader.m
 
@@ -1246,12 +1246,12 @@ GZIP  29553  bytes (96%)
 #pragma mark - URLs
 
 - (NSURL *)urlForPersonsPersonalInfo:(Person *)person {
-    NSString *urlString = [NSString stringWithFormat:@"http://e1.com/personalInfo/%ld", (long)person.id];
+    NSString *urlString = [NSString stringWithFormat:@"http://e1.com/persons/%ld", (long)person.id];
     return [[NSURL alloc] initWithString:urlString];
 }
 
 - (NSURL *)urlForPersonsAccountNumber:(Person *)person {
-    NSString *urlString = [NSString stringWithFormat:@"http://e2.com/accountNumber/%ld", (long)person.id];
+    NSString *urlString = [NSString stringWithFormat:@"http://e2.com/accounts/%ld", (long)person.id];
     return [[NSURL alloc] initWithString:urlString];
 }
 
@@ -1326,6 +1326,48 @@ GZIP  29553  bytes (96%)
 
 
         </code></pre>
+    </section>
+    <section>
+        <h2>Client code - Android</h2>
+        TODO większ okienko
+        <pre><code>protected void onResume() {
+        super.onResume();
+        try {
+            download();
+        } catch (Exception e) {
+            Log.e(TAG, "Error while downloading data", e);
+        }
+}
+
+public void download() throws ExecutionException, InterruptedException {
+        Future&lt;Response&lt;JsonObject&gt;&gt; personFuture = Ion.
+                with(this).
+                load("http://e1.com/persons/123").
+                asJsonObject().withResponse();
+
+        Future&lt;Response&lt;JsonObject&gt;&gt; accountFuture = Ion.
+                with(this).
+                load("http://e2.com/accounts/456").
+                asJsonObject().
+                withResponse();
+
+        Response&lt;JsonObject&gt; personResponse = personFuture.get();
+        Response&lt;JsonObject&gt; accountResponse = accountFuture.get();
+
+        if (personResponse.getException() != null && accountResponse.getException() != null) {
+
+            JsonObject person = personResponse.getResult().getAsJsonObject();
+            JsonObject account = personResponse.getResult().getAsJsonObject();
+
+            String firstName = person.getAsJsonPrimitive("firstName").toString();
+            String lastName = person.getAsJsonPrimitive("lastName").toString();
+            String accountNo = account.getAsJsonPrimitive("accountNo").toString();
+
+        } else {
+            Log.e(TAG, "Error while downloading account", accountResponse.getException());
+            Log.e(TAG, "Error while downloading person", personResponse.getException());
+        }
+}</code></pre>
     </section>
     <section>
         <h3>Automated testing sucks!</h3>
