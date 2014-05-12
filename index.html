@@ -103,17 +103,15 @@
 </section>
 <section>
     <section>
-        <h1>Mobile network</h1>
-
-        <h3>Latency vs throughput</h3>
-
-        <p>[image - page loading, latency vs throughput]</p>
+        <h1>Latency</h1>
+        TODO na rysunku nie ma wielkości danych
+        <p style="margin-top: 80px"><img src="img/GeeCON_latency.png"></p>
     </section>
     <section>
         <h1>Latency</h1>
         <br/>
         <p>
-        <table class="reveal" style="font-size: smaller;">
+        <table class="reveal" style="width: 80%; margin:auto;font-size: smaller;">
             <thead>
             <tr>
                 <th></th>
@@ -179,9 +177,9 @@
     </section>
     <section>
         <h1>HATEOAS</h1>
-        <div class="left_compare">
+        <div class="left_compare" style="margin-top: 100px;">
             <pre>GET /users/123</pre>
-            <pre><code class="json">{
+            <pre style="margin-top: 40px;"><code class="json">{
   "name": "John Doe",
   "age": 25,
   "links": [
@@ -200,9 +198,9 @@
   ]
 }</code></pre>
         </div>
-        <div class="right_compare">
+        <div class="right_compare" style="margin-top: 100px;">
             <pre>GET /addresses/555</pre>
-            <pre><code class="json">{
+            <pre style="margin-top: 40px;"><code class="json">{
   "street": "Sesame",
   "no": 25,
   "zipCode": "12-321",
@@ -216,9 +214,10 @@
     <section>
         <h1>Merging responses</h1>
         <br/>
-        <div>
-            <pre>GET /users/123</pre>
-            <pre><code class="json">{
+        <div style="margin-top: 100px;">
+            <pre style="width: 70%; margin: auto;">GET /users/123</pre>
+            <br/>
+            <pre style="width: 70%; margin: auto;"><code class="json">{
   "name": "John Doe",
   "age": 25,
   "country": "US"
@@ -228,9 +227,10 @@
     <section>
         <h1>Expansion</h1>
         <br/>
-        <div>
-            <pre>GET /users/123?<span style="color: #6a1520;">fields=[name,age,address[country]]</span></pre>
-            <pre><code class="json">{
+        <div style="margin-top: 100px;">
+            <pre style="width: 70%; margin: auto;">GET /users/123?<span style="color: #6a1520;">fields=[name,age,address[country]]</span></pre>
+            <br/>
+            <pre style="width: 70%; margin: auto;"><code class="json">{
   "name": "John Doe",
   "age": 25,
   "country": "US"
@@ -239,7 +239,7 @@
         <aside class="notes">better for public APIs in contrast to homegrown, efficient expansion mechanism</aside>
     </section>
     <section>
-        <h2><pre><code style="text-align: center;">Connection: Keep-Alive</code></pre></h2>
+        <h2><pre style="width: 70%; margin: auto;"><code style="text-align: center;">Connection: Keep-Alive</code></pre></h2>
     </section>
     <section data-background="img/swagger.png"></section>
 </section>
@@ -248,12 +248,12 @@
         <h1>Throughput</h1>
     </section>
     <section>
-        <p>[TODO world.eps with akamai throughput for each continent]</p>
+        <p><img src="img/GeeCON_map.png"></p>
     </section>
     <section>
         <h2>Connection speed market share</h2>
 
-        <div>
+        <div style="margin-top: 100px;">
             <img src="img/cisco_1.jpg" style="margin-right:30px;width: 450px; height: 300px;"/>
             <img src="img/cisco_2.jpg" style="margin-left:30px;width: 450px; height: 300px;"/>
         </div>
@@ -264,9 +264,9 @@
     <section>
         <h1>Data subset</h1>
 
-        <div class="left_compare">
+        <div class="left_compare" style="margin-top: 100px;">
             <pre>Complete model</pre>
-            <pre><code class="json">{
+            <pre style="margin-top: 40px;"><code class="json">{
   "person": {
     "id": 12345,
     "firstName": "John",
@@ -301,9 +301,9 @@
   }
 }</code></pre>
         </div>
-        <div class="right_compare">
+        <div class="right_compare" style="margin-top: 100px;">
             <pre>Trimmed model</pre>
-            <pre><code class="json">{
+            <pre style="margin-top: 40px;"><code class="json">{
     "firstName": "John",
     "lastName": "Doe",
     "age": 25,
@@ -313,10 +313,10 @@
     </section>
     <section>
         <h1>Compress data (gzip)</h1>
-        <div class="left_compare">
+        <div class="left_compare" style="margin-top: 100px;">
             <pre>Full: 222910 bytes
 GZIP: 32128 bytes (14%)</pre>
-            <pre><code class="java">{
+            <pre style="margin-top: 40px;"><code class="java">{
 "people": [
     {
         "firstName": "Jason",
@@ -498,10 +498,10 @@ GZIP: 32128 bytes (14%)</pre>
 }
             </code></pre>
         </div>
-        <div class="right_compare">
+        <div class="right_compare" style="margin-top: 100px;">
             <pre>Full: 48 bytes
 GZIP: 60 bytes (125%)</pre>
-            <pre><code class="java">{
+            <pre style="margin-top: 40px;"><code class="java">{
   "firstName": "Arianna",
   "lastName": "Mcknight"
 }
@@ -511,9 +511,9 @@ GZIP: 60 bytes (125%)</pre>
     <section>
         <h1>Expansion</h1>
 
-        <div class="left_compare">
+        <div class="left_compare" style="margin-top: 100px;">
             <pre>GET /people/</pre>
-            <pre><code class="java">{
+            <pre style="margin-top: 40px;"><code class="java">{
 "people": [
     {
         "firstName": "Jason",
@@ -695,9 +695,9 @@ GZIP: 60 bytes (125%)</pre>
 }
             </code></pre>
         </div>
-        <div class="right_compare">
+        <div class="right_compare" style="margin-top: 100px;">
             <pre>GET /people?fields=[firstName, lastName]</pre>
-            <pre><code class="java">{
+            <pre style="margin-top: 40px;"><code class="java">{
 "people": [
     {
         "firstName": "Kennedy",
@@ -786,12 +786,12 @@ GZIP: 60 bytes (125%)</pre>
     </section>
     <section>
         <h1>XML vs JSON</h1>
-<div class="left_compare">
+        <div class="left_compare" style="margin-top: 100px;">
                         <pre>PLAIN 171120 bytes
 GZIP  30855  bytes
 </pre>
 
-            <pre><code class="java"><people>
+            <pre style="margin-top: 40px;"><code><people>
   <person>
     <firstName>Grayson</firstName>
     <lastName>Wilkins</lastName>
@@ -979,12 +979,12 @@ GZIP  30855  bytes
 </people>
             </code></pre>
         </div>
-        <div class="right_compare">
+        <div class="right_compare" style="margin-top: 100px;">
 
             <pre>PLAIN 121115 bytes (70%)
 GZIP  29553  bytes (96%)
 </pre>
-            <pre><code class="java">{
+            <pre style="margin-top: 40px;"><code class="java">{
 "people": [
     {
         "firstName": "Jason",
@@ -1172,11 +1172,11 @@ GZIP  29553  bytes (96%)
     <section>
         <h1>Toolbox</h1>
 
-        <p>[rysunek - zadanie - rownolegle zapytania]</p>
+        <img style="margin-top: 100px;" src="img/GeeCON_toolbox.png">
     </section>
     <section>
         <h2>Client code - iOS</h2>
-        <pre><code>// PersonDataDownloader.m
+        <pre style="margin-top: 100px;"><code>// PersonDataDownloader.m
 #import "PersonDataDownloader_M.h"
 #import "Person.h"
 #import "TaskCallsSynchronizer.h"
@@ -1323,7 +1323,7 @@ GZIP  29553  bytes (96%)
     </section>
     <section>
         <h2>Client code - Android</h2>
-        <pre><code>protected void onResume() {
+        <pre style="margin-top: 100px;"><code>protected void onResume() {
         super.onResume();
         try {
             download();
@@ -1363,22 +1363,19 @@ public void download() throws ExecutionException, InterruptedException {
 }</code></pre>
     </section>
     <section>
-        <h3>Automated testing sucks!</h3>
+        <h2>Automated testing sucks!</h2>
 
         <img src="img/testing_sucks.png">
     </section>
     <section>
         <h2>Updating app takes long</h2>
 
-        <p>[rysunek update aplikacji]</p>
+        <img src="img/GeeCON_update.png">
     </section>
     <section>
         <h1>server side version</h1>
 
-        <pre><code>import groovy.json.JsonSlurper
-import static groovyx.gpars.GParsPool.withPool
-
-def parts = [
+        <pre style="margin-top: 100px;"><code>def parts = [
     "http://e1.com/persons/123": ['firstName', 'lastName'],
     "http://e2.com/accounts/456": ['accountNo'],
 ]
@@ -1397,14 +1394,14 @@ def output = withPool(2) {
     </section>
     <section>
         <h1>Verbs vs Nouns</h1>
-<div class="left_compare">
-            <pre>POST /following</pre>
+<div class="left_compare" style="margin-top: 100px;">
+            <pre style="margin-bottom: 40px;">POST /following</pre>
             <pre><code class="json">{
   "from": 123,
   "to": 456
 }</code></pre>
         </div>
-        <div class="right_compare">
+        <div class="right_compare" style="margin-top: 100px;">
             <pre>POST /users/456/follow</pre>
         </div>
     </section>
@@ -1425,7 +1422,7 @@ def output = withPool(2) {
     <section>
         <h1>http cache (TODO)</h1>
         <br/>
-        <pre class="fragment" style="text-align: center;">Expires: Sat, 26 Jul 1997 05:00:00 GMT</pre>
+        <pre class="fragment" style="width: 50%; text-align: center; margin-top: 100px; font-size: xx-large;">Expires: Sat, 26 Jul 1997 05:00:00 GMT</pre>
         <br/>
         <ul class="fragment">
             <li>iOS (AFNetworking + NSURLCache)</li>
@@ -1438,9 +1435,9 @@ def output = withPool(2) {
 </section>
 <section>
     <section>
-        <h2>Case study - utest app</h2>
+        <h1>Case study - utest app</h1>
         <br/>
-        <ul>
+        <ul style="margin-top: 100px;">
             <li>In the wild testing service</li>
             <li>Testers located all over the world</li>
             <li>Legacy API</li>
@@ -1449,7 +1446,7 @@ def output = withPool(2) {
     <section>
         <h1>Reductions</h1>
         <br/>
-        <ul>
+        <ul style="margin-top: 100px;">
             <li>36 to 20 endpoints</li>
             <li>86 to 20 calls (visiting all screens once)</li>
             <li>96% data size reduction (84% without GZIP)</li>
@@ -1459,8 +1456,8 @@ def output = withPool(2) {
         <video controls="controls" width="800" height="600" name="Video Name" src="utest-timer.mov"></video>
     </section>
     <section>
-        <h1>Scheme</h1>
-        TODO - rysunek z architekturą
+        <h2>Scheme</h2>
+        <img src="img/GeeCON_architecture.png">
     </section>
 </section>
 <section>
