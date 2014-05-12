@@ -55,9 +55,9 @@
         <h2>teammates @ polidea</h2>
 
         <div>
-            <img src="img/maciej_op.jpg" style="float: left; width: 200px;">
-            <img src="img/wojtek_er.jpg" style="float: right; width: 200px;">
-            <img src="img/team.jpg" class="image" style="width: 500px; ">
+            <img src="img/maciej_op.jpg" style="width: 200px; float:left; margin-left: 200px;">
+            <img src="img/team.jpg" class="image" style="width: 500px;">
+            <img src="img/wojtek_er.jpg" style="width: 200px; float: right; margin-right: 200px;">
         </div>
         <aside class="notes">
             <span style="color: red;">Maciek</span>
@@ -113,7 +113,7 @@
         <h1>Latency</h1>
         <br/>
         <p>
-        <table class="reveal" style="font-size: smaller;" id="omg_table">
+        <table class="reveal" style="font-size: smaller;">
             <thead>
             <tr>
                 <th></th>
@@ -254,8 +254,8 @@
         <h2>Connection speed market share</h2>
 
         <div>
-            <img src="img/cisco_1.jpg" style="float: left; width: 450px; height: 300px;"/>
-            <img src="img/cisco_2.jpg" style="float: right; width: 450px; height: 300px;"/>
+            <img src="img/cisco_1.jpg" style="margin-right:30px;width: 450px; height: 300px;"/>
+            <img src="img/cisco_2.jpg" style="margin-left:30px;width: 450px; height: 300px;"/>
         </div>
         <aside class="notes">
             <span style="color: red;">Maciek</span>
@@ -1176,10 +1176,7 @@ GZIP  29553  bytes (96%)
     </section>
     <section>
         <h2>Client code - iOS</h2>
-        TODO większ okienko
-        <pre><code># PersonDataDownloader.m
-
-
+        <pre><code>// PersonDataDownloader.m
 #import "PersonDataDownloader_M.h"
 #import "Person.h"
 #import "TaskCallsSynchronizer.h"
@@ -1259,10 +1256,7 @@ GZIP  29553  bytes (96%)
 
 
 
-# TaskCallSynchronizer.m
-
-
-
+// TaskCallSynchronizer.m
 #import "TaskCallsSynchronizer.h"
 
 
@@ -1329,7 +1323,6 @@ GZIP  29553  bytes (96%)
     </section>
     <section>
         <h2>Client code - Android</h2>
-        TODO większ okienko
         <pre><code>protected void onResume() {
         super.onResume();
         try {
