@@ -7,7 +7,7 @@
     <title>Designing API for Mobile apps</title>
 
     <meta name="description" content="Presentation about designing API for mobile applications.">
-    <meta name="author" content="Wojtek Erbetowski, Maciek Opała">
+    <meta name="author" content="Wojtek Erbetowski">
 
     <meta name="apple-mobile-web-app-capable" content="yes"/>
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"/>
@@ -15,7 +15,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
     <link rel="stylesheet" href="css/reveal.min.css">
-    <link rel="stylesheet" href="css/theme/beige.css" id="theme">
+    <link rel="stylesheet" href="css/theme/serif.css" id="theme">
     <link rel="stylesheet" href="css/main.css">
 
     <!-- For syntax highlighting -->
@@ -45,27 +45,18 @@
 
 <!-- Any section element inside of this container is displayed as a slide -->
 <div class="slides">
-<section data-background="img/GeeCON_bg.png">
-    <section>
+<section data-background="#ffffff">
+    <section data-background="#ffffff">
         <h1>Designing api for mobile apps</h1>
-
-        <aside class="notes">
-            <span style="color: red;">Gosia niech zrobi grafikę</span>
-        </aside>
+        <h2>Wojtek Erbetowski</h2>
+        <h2>@erbetowski</h2>
     </section>
-    <section>
-        <h2>teammates @ polidea</h2>
+    <section data-background="#ffffff">
+        <h2>tech lead @ polidea</h2>
 
-        <div>
-            <img src="img/maciej_op.jpg" style="width: 200px; float:left; margin-left: 200px;">
-            <img src="img/team.jpg" class="image" style="width: 500px;">
-            <img src="img/wojtek_er.jpg" style="width: 200px; float: right; margin-right: 200px;">
-        </div>
-        <aside class="notes">
-            <span style="color: red;">Maciek</span>
-        </aside>
+        <img src="img/team.jpg" class="image" style="width: 500px;">
     </section>
-    <section>
+    <section data-background="#ffffff">
         <h1>Polidea...</h1>
         <br/>
         <ul>
@@ -84,31 +75,22 @@
         </aside>
     </section>
 </section>
-<section data-background="img/GeeCON_bg.png">
-    <section>
+<section data-background="#ffffff">
+    <section data-background="#ffffff">
         <h1>Welcome</h1>
 
         <h3>to the world of ...</h3>
     </section>
-    <section>
+    <section data-background="#ffffff">
         <img src="img/sir.jpg">
     </section>
-    <section>
-        <img src="img/Grumpy-Cat-MEME-01.jpg">
-    </section>
-    <section>
-        <img src="img/said-no-one-ever-meme-1.jpg">
-    </section>
-    <section>
-        <img src="img/ChemistryCatOnDating.jpg">
-    </section>
 </section>
-<section data-background="img/GeeCON_bg.png">
-    <section>
+<section data-background="#ffffff">
+    <section data-background="#ffffff">
         <h1>Latency</h1>
         <p style="margin-top: 80px"><img src="img/GeeCON_latency.png"></p>
     </section>
-    <section>
+    <section data-background="#ffffff">
         <h1>Latency</h1>
         <br/>
         <p>
@@ -176,7 +158,7 @@
         </table>
         </p>
     </section>
-    <section>
+    <section data-background="#ffffff">
         <h1>HATEOAS</h1>
         <div class="left_compare" style="margin-top: 100px;">
             <pre>GET /users/123</pre>
@@ -211,7 +193,7 @@
         </div>
 
     </section>
-    <section>
+    <section data-background="#ffffff">
         <h1>Merging responses</h1>
         <br/>
         <div style="margin-top: 100px;">
@@ -224,7 +206,7 @@
 }</code></pre>
         </div>
     </section>
-    <section>
+    <section data-background="#ffffff">
         <h1>Expansion</h1>
         <br/>
         <div style="margin-top: 100px;">
@@ -238,19 +220,19 @@
         </div>
         <aside class="notes">better for public APIs in contrast to homegrown, efficient expansion mechanism</aside>
     </section>
-    <section>
+    <section data-background="#ffffff">
         <h2><pre style="width: 70%; margin: auto;"><code style="text-align: center;">Connection: Keep-Alive</code></pre></h2>
     </section>
     <section data-background="img/swagger.png"></section>
 </section>
-<section data-background="img/GeeCON_bg.png">
-    <section>
+<section data-background="#ffffff">
+    <section data-background="#ffffff">
         <h1>Throughput</h1>
     </section>
-    <section>
+    <section data-background="#ffffff">
         <p><img src="img/GeeCON_map.png"></p>
     </section>
-    <section>
+    <section data-background="#ffffff">
         <h2>Connection speed market share</h2>
 
         <div style="margin-top: 100px;">
@@ -261,7 +243,7 @@
             <span style="color: red;">Maciek</span>
         </aside>
     </section>
-    <section>
+    <section data-background="#ffffff">
         <h1>Data subset</h1>
 
         <div class="left_compare" style="margin-top: 100px;">
@@ -311,7 +293,7 @@
 }</code></pre>
         </div>
     </section>
-    <section>
+    <section data-background="#ffffff">
         <h1>Compress data (gzip)</h1>
         <div class="left_compare" style="margin-top: 100px;">
             <pre>Full: 222910 bytes
@@ -508,7 +490,7 @@ GZIP: 60 bytes (125%)</pre>
             </code></pre>
         </div>
     </section>
-    <section>
+    <section data-background="#ffffff">
         <h1>Expansion</h1>
 
         <div class="left_compare" style="margin-top: 100px;">
@@ -784,7 +766,7 @@ GZIP: 60 bytes (125%)</pre>
             </code></pre>
         </div>
     </section>
-    <section>
+    <section data-background="#ffffff">
         <h1>XML vs JSON</h1>
         <div class="left_compare" style="margin-top: 100px;">
                         <pre>PLAIN 171120 bytes
@@ -1168,13 +1150,13 @@ GZIP  29553  bytes (96%)
         </div>
     </section>
 </section>
-<section data-background="img/GeeCON_bg.png">
-    <section>
+<section data-background="#ffffff">
+    <section data-background="#ffffff">
         <h1>Toolbox</h1>
 
         <img style="margin-top: 100px;" src="img/GeeCON_toolbox.png">
     </section>
-    <section>
+    <section data-background="#ffffff">
         <h2>Client code - iOS</h2>
         <pre style="margin-top: 100px;"><code>// PersonDataDownloader.m
 #import "PersonDataDownloader_M.h"
@@ -1321,7 +1303,7 @@ GZIP  29553  bytes (96%)
 
         </code></pre>
     </section>
-    <section>
+    <section data-background="#ffffff">
         <h2>Client code - Android</h2>
         <pre style="margin-top: 100px;"><code>protected void onResume() {
         super.onResume();
@@ -1362,17 +1344,17 @@ public void download() throws ExecutionException, InterruptedException {
         }
 }</code></pre>
     </section>
-    <section>
+    <section data-background="#ffffff">
         <h2>Automated testing sucks!</h2>
 
         <img src="img/testing_sucks.png" style="max-height: 720px;">
     </section>
-    <section>
+    <section data-background="#ffffff">
         <h2>Updating app takes long</h2>
 
         <img src="img/GeeCON_update.png" style="max-height: 720px;">
     </section>
-    <section>
+    <section data-background="#ffffff">
         <h1>server side version</h1>
 
         <pre style="margin-top: 100px;"><code>def parts = [
@@ -1392,7 +1374,7 @@ def output = withPool(2) {
   }).flatten().sum()
 }</code></pre>
     </section>
-    <section>
+    <section data-background="#ffffff">
         <h1>Nouns vs Verbs</h1>
 <div class="left_compare" style="margin-top: 100px;">
             <pre style="margin-bottom: 40px;">POST /following</pre>
@@ -1407,11 +1389,11 @@ def output = withPool(2) {
         </div>
     </section>
 </section>
-<section data-background="img/GeeCON_bg.png">
-    <section>
+<section data-background="#ffffff">
+    <section data-background="#ffffff">
         <h1>Common problems</h1>
     </section>
-    <section>
+    <section data-background="#ffffff">
         <h1>versioning</h1>
         <br/>
         <ul>
@@ -1420,7 +1402,7 @@ def output = withPool(2) {
             <li class="fragment">http://v1.api.example.com</li>
         </ul>
     </section>
-    <section>
+    <section data-background="#ffffff">
         <h1>http cache</h1>
         <br/>
         <pre class="fragment" style="width: 50%; text-align: center; margin-top: 100px; font-size: xx-large;">Expires: Sat, 26 Jul 1997 05:00:00 GMT</pre>
@@ -1430,7 +1412,7 @@ def output = withPool(2) {
             <li>Android (Retrofit + OkHttp + HttpResponseCache)</li>
         </ul>
     </section>
-  <section>
+  <section data-background="#ffffff">
     <h1>paging</h1>
     <br/>
     <div class="left_compare">
@@ -1453,7 +1435,7 @@ def output = withPool(2) {
         <p class="fragment">Page 2: Eve Fred George</p>
     </div>
   </section>
-  <section>
+  <section data-background="#ffffff">
     <h1>relative page ref</h1>
     <br/>
     <pre style="margin-top:100px;width: 700px; font-size: xx-large;"><code>{
@@ -1462,8 +1444,8 @@ def output = withPool(2) {
 }</code></pre>
   </section>
 </section>
-<section data-background="img/GeeCON_bg.png">
-    <section>
+<section data-background="#ffffff">
+    <section data-background="#ffffff">
         <h1>Case study - utest app</h1>
         <br/>
         <ul style="margin-top: 100px;">
@@ -1472,7 +1454,7 @@ def output = withPool(2) {
             <li>Legacy API</li>
         </ul>
     </section>
-    <section>
+    <section data-background="#ffffff">
         <h1>Reductions</h1>
         <br/>
         <ul style="margin-top: 100px;">
@@ -1481,15 +1463,15 @@ def output = withPool(2) {
             <li>96% data size reduction (84% without GZIP)</li>
         </ul>
     </section>
-    <section>
+    <section data-background="#ffffff">
         <video controls="controls" width="800" height="600" name="Video Name" src="utest-timer.mov"></video>
     </section>
-    <section>
+    <section data-background="#ffffff">
         <h2>Scheme</h2>
         <img src="img/GeeCON_architecture.png" style="max-height: 720px;">
     </section>
 </section>
-<section data-background="img/GeeCON_bg.png">
+<section data-background="#ffffff">
     <h2>q&amp;a</h2>
 </section>
 </div>
